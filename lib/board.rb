@@ -12,11 +12,11 @@ class Board
   # end
 
 
-  # def update_letters
-  #   @indices = (0..@word_array.size - 1).select {|index| @word_array[index] == @guess}
-  #   @indices.each {|index| @board.letters[index] = @guess}
-  #   puts "Your board looks like this: #{@board.letters}"
-  #   byebug
-  # end
+  def update_letters(board, array, guess)
+    @indices = (0..array.size - 1).select {|index| array[index] == guess}
+    @indices.each {|index| board.letters[index] = guess}
+    puts "Your board looks like this: #{board.letters}"
+    byebug
+  end
 
 end

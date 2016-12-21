@@ -1,18 +1,18 @@
 require_relative '../player.rb'
 module Players
   class Human < Player
-  #   attr_accessor :board, :word, :word_array
-  #   def guess(board, word_array)
-  #     puts "Player 1, please guess a letter"
-  #     @guess = gets.chomp
-  #     byebug
-  #     if @word_array.include?(@guess)
-  #       update_letters
-  #       byebug
-  #     else
-  #       @board.incorrect_letters << @guess
-  #       byebug
-  #     end
-  #   end
+    attr_accessor :board, :word, :word_array
+    def guess(board, array)
+      puts "Player 1, please guess a letter"
+      @guess = gets.chomp
+      byebug
+      if array.include?(@guess)
+        board.update_letters(board, array, @guess)
+        byebug
+      else
+        board.incorrect_letters << @guess
+        byebug
+      end
+    end
   end
 end

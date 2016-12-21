@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/environment'
+
+# start game, keep playing until someone wins
+# then ask if they want to play again
+start

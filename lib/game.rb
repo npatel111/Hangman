@@ -1,3 +1,5 @@
+require 'highline/import'
+
 class Game
   attr_accessor :player_1, :player_2, :board, :image, :word, :guess, :word_array, :indices
 
@@ -9,10 +11,12 @@ class Game
   end
 
   def pick_word
-    puts "Player 2, please pick a word"
-    @word = gets.chomp
+    @word = ask("Player 2, pick a word: ") {|q| q.echo = "*"}
+    # puts "Player 2, please pick a word"
+    # @word = gets.chomp
     @word_array = @word.split("")
     @board.letters = @board.letters*@word.length
+    byebug
   end
 
 

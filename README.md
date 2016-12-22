@@ -17,3 +17,8 @@
  - If player guess is wrong, show the hangman (have ASCII drawing?) Increase body parts every time they are wrong
  - Until player guesses word or has the whole body, keep doing this
   -When they have won/lost, ask if they want to play again
+
+## Things to do once MVP is done
+- Generate random word from API?
+- Have messages be better so user always knows what's going on
+- Refactor  

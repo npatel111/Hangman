@@ -16,7 +16,6 @@ class Board
     @indices = (0..array.size - 1).select {|index| array[index] == guess}
     @indices.each {|index| board.letters[index] = guess}
     puts "Your board looks like this: #{board.letters}"
-    byebug
   end
 
 end

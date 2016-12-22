@@ -6,7 +6,6 @@ class Game
     @player_2 = player_2
     @board = board
     @image = image
-    byebug
   end
 
   def pick_word
@@ -32,10 +31,12 @@ class Game
       @loser = @player_1
       @winner = @player_2
     end
+    puts "Congratulations #{@winner.type}"
+    puts "Sorry, #{@loser.type}"
   end
 
   def lost?
-    @image = @hanged_man
+    @image.hangman_image == hanged_men.last
   end
 
   def over?
@@ -45,10 +46,9 @@ class Game
   def play
     pick_word
     until over?
-      byebug
       @player_1.guess(@board, @word_array, @image)
-      byebug
     end
+    byebug
     end_message
   end
 end

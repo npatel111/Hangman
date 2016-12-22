@@ -20,8 +20,8 @@
 
 ## Things to do once MVP is done
 - Generate random word from API?
-- Pick word method edit for computer
-- When someone types word, should be stars
+- Pick word method for computer
+- When someone types word, should be stars - DONE
 - Have messages be better so user always knows what's going on
 - Use composition instead of Inheritance!
 - Refactor  

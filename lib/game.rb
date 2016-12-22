@@ -8,17 +8,8 @@ class Game
     @player_2 = player_2
     @board = board
     @image = image
+    # @word_array = []
   end
-
-  def pick_word
-    @word = ask("Player 2, pick a word: ") {|q| q.echo = "*"}
-    # puts "Player 2, please pick a word"
-    # @word = gets.chomp
-    @word_array = @word.split("")
-    @board.letters = @board.letters*@word.length
-    byebug
-  end
-
 
   def valid_guess
   end
@@ -47,12 +38,18 @@ class Game
     won? || lost?
   end
 
+  def turns
+
+  end
+
   def play
-    pick_word
-    until over?
-      @player_1.guess(@board, @word_array, @image)
-    end
+    self.player_2.pick_word(@board)
+    @word_array = self.player_2.word_array #atrocious code. Must fix later!
     byebug
+    until over?
+      byebug
+      self.player_1.guess(@board, @word_array, @image)
+    end
     end_message
   end
 end

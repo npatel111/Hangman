@@ -13,7 +13,6 @@ class Image
   end
 
   def display_hangman_image
-    #not sure it's right?
     @hangman_image.map {|line| puts line}
   end
 
@@ -23,18 +22,8 @@ class Image
     self.hangman_image = hanged_men[@num + 1]
     display_hangman_image
   end
-
-
-# have array of possible hanged men, update method goes to next index
 end
 
-#       __________
-#       |         |
-#       |         0
-#       |        /|\
-#       |        / \
-#       |
-# ______|_______
 
 def hanged_men
   [

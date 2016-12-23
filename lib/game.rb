@@ -54,6 +54,16 @@ class Game
     puts ""
   end
 
+  def ask_to_play_again
+    puts "Do you want to play again? (Y/N)"
+    answer = gets.chomp
+    if answer.downcase == "y"
+      start
+    else
+      exit
+    end
+  end
+
   def play
     self.player_2.pick_word(@board)
     # self.player_1.word_array = self.player_2.word_array #atrocious code. Must fix later!
@@ -63,5 +73,6 @@ class Game
       show_status
     end
     end_message
+    ask_to_play_again
   end
 end

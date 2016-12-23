@@ -22,8 +22,9 @@
 - Generate random word from API? - DONE with gem
 - Pick word method for computer - DONE
 - When someone types word, should be stars - DONE
-- Have messages be better so user always knows what's going on
+- Have messages be better so user always knows what's going on - POSSIBLE DONE? WHO KNOWS
+- Do they want to play again? - DONE
+- Only do move if it's a valid guess
 - Use composition instead of Inheritance!
 - AI for computer guesses? Any strategy for hangman?
-- Only do move if it's a valid guess
 - Refactor  

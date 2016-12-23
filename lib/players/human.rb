@@ -3,7 +3,6 @@ module Players
   class Human < Player
     attr_accessor :board, :word, :word_array
     def guess(board, array, image)
-      byebug
       puts "Player 1, please guess a letter"
       @guess = gets.chomp
       if array.include?(@guess)

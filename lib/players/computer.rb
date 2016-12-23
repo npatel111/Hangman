@@ -20,8 +20,7 @@ module Players
 
     def pick_word(board)
       @word = RandomWord.adjs.next
-      byebug
-      puts "Okay Player 2, a computer, picks: "
+      puts "Okay Player 2, a computer, picked a word."
       @word_array = @word.split("")
       board.letters = board.letters*@word.length
     end

@@ -12,15 +12,15 @@ class Image
       " ______|_______  "]
   end
 
-  def display_hangman_image
-    @hangman_image.map {|line| puts line}
+  def display_hangman_image(image)
+    puts "Your hangman:"
+    image.hangman_image.map {|line| puts line}
   end
 
   def update_hangman_image
     #find whatever index the image is, then hangman _image equals the next image
     @num = (0..hanged_men.length - 1).find_index {|i| self.hangman_image == hanged_men[i]}
     self.hangman_image = hanged_men[@num + 1]
-    display_hangman_image
   end
 end
 

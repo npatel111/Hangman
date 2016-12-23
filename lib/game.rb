@@ -21,12 +21,15 @@ class Game
     if won?
       @winner = @player_1
       @loser = @player_2
+      puts "Congratulations #{@winner.type}"
+      puts "Sorry, #{@loser.type}"
     else
       @loser = @player_1
       @winner = @player_2
+      puts "Congratulations #{@winner.type}"
+      puts "Sorry, #{@loser.type}, the word was: #{self.player_2.word}"
     end
-    puts "Congratulations #{@winner.type}"
-    puts "Sorry, #{@loser.type}"
+
   end
 
   def lost?
@@ -41,15 +44,23 @@ class Game
 
   end
 
+  def show_status
+    # puts "Your board!: #{@board.letters}"
+    # puts "Incorrect letters!: #{@board.incorrect_letters}"
+    @board.display_board(@board)
+    @image.display_hangman_image(@image)
+    puts ""
+    puts ""
+    puts ""
+  end
+
   def play
     self.player_2.pick_word(@board)
-    byebug
     # self.player_1.word_array = self.player_2.word_array #atrocious code. Must fix later!
     @word_array = self.player_2.word_array
-    byebug
     until over?
-      byebug
       self.player_1.guess(@board, @word_array, @image)
+      show_status
     end
     end_message
   end

@@ -25,4 +25,5 @@
 - Have messages be better so user always knows what's going on
 - Use composition instead of Inheritance!
 - AI for computer guesses? Any strategy for hangman?
+- Only do move if it's a valid guess
 - Refactor  

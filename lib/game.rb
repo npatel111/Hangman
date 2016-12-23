@@ -8,7 +8,6 @@ class Game
     @player_2 = player_2
     @board = board
     @image = image
-    # @word_array = []
   end
 
   def valid_guess
@@ -44,7 +43,9 @@ class Game
 
   def play
     self.player_2.pick_word(@board)
-    @word_array = self.player_2.word_array #atrocious code. Must fix later!
+    byebug
+    # self.player_1.word_array = self.player_2.word_array #atrocious code. Must fix later!
+    @word_array = self.player_2.word_array
     byebug
     until over?
       byebug

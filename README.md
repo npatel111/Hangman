@@ -19,9 +19,10 @@
   -When they have won/lost, ask if they want to play again
 
 ## Things to do once MVP is done
-- Generate random word from API?
-- Pick word method for computer
+- Generate random word from API? - DONE with gem
+- Pick word method for computer - DONE
 - When someone types word, should be stars - DONE
 - Have messages be better so user always knows what's going on
 - Use composition instead of Inheritance!
+- AI for computer guesses? Any strategy for hangman?
 - Refactor  

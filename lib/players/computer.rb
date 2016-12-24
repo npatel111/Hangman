@@ -10,6 +10,12 @@ module Players
       alphabet = ('a'..'z').to_a
       @guess_letter = alphabet.sample
       puts "Player 1 (computer), guesses: #{@guess_letter}"
+      until valid_guess?(@guess_letter, board)
+        puts "Invalid. Guess again"
+        guess(board, array, image)
+        # @guess_letter = gets.chomp
+      end
+
       if array.include?(@guess_letter)
         board.update_letters(board, array, @guess_letter)
       else

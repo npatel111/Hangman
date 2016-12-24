@@ -5,7 +5,6 @@ module Players
     def guess(board, array, image)
       puts "Player 1, please guess a letter"
       @guess_letter = gets.chomp
-      byebug
       until valid_guess?(@guess_letter, board)
         puts "Invalid. Guess again"
         @guess_letter = gets.chomp

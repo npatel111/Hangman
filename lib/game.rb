@@ -40,13 +40,9 @@ class Game
     won? || lost?
   end
 
-  def turns
 
-  end
 
   def show_status
-    # puts "Your board!: #{@board.letters}"
-    # puts "Incorrect letters!: #{@board.incorrect_letters}"
     @board.display_board(@board)
     @image.display_hangman_image(@image)
     puts ""

@@ -8,12 +8,12 @@ module Players
     def guess(board, array, image)
 
       alphabet = ('a'..'z').to_a
-      @guess = alphabet.sample
-      puts "Player 1 (computer), guesses: #{@guess}"
-      if array.include?(@guess)
-        board.update_letters(board, array, @guess)
+      @guess_letter = alphabet.sample
+      puts "Player 1 (computer), guesses: #{@guess_letter}"
+      if array.include?(@guess_letter)
+        board.update_letters(board, array, @guess_letter)
       else
-        board.incorrect_letters << @guess
+        board.incorrect_letters << @guess_letter
         image.update_hangman_image
       end
     end

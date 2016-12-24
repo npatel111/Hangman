@@ -28,3 +28,6 @@
 - Use composition instead of Inheritance!
 - AI for computer guesses? Any strategy for hangman?
 - Refactor  
+- Add hint option
+- Option to start with all vowels put in?
+- Give easy/medium/hards from computer

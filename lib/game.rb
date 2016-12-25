@@ -3,11 +3,11 @@ require 'highline/import'
 class Game
   attr_accessor :player_1, :player_2, :board, :image, :word, :guess, :word_array, :indices
 
-  def initialize(player_1 = Players::Human.new("guesser"), player_2 = Computer_Player.new("picker"), board = Board.new, image = Image.new)
+  def initialize(player_1 = Players::Human.new("guesser"), player_2 = Computer_Player.new("picker"))
     @player_1 = player_1
     @player_2 = player_2
-    @board = board
-    @image = image
+    @board = Board.new
+    @image = Image.new
   end
 
   def won?
@@ -16,15 +16,13 @@ class Game
 
   def end_message
     if won?
-      @winner = @player_1
-      @loser = @player_2
-      puts "Congratulations #{@winner.type}"
-      puts "Sorry, #{@loser.type}"
+      #player_1 (guesser) is winner
+      puts "Congratulations #{@player_1.type}"
+      puts "Sorry, #{@player_2.type}"
     else
-      @loser = @player_1
-      @winner = @player_2
-      puts "Congratulations #{@winner.type}"
-      puts "Sorry, #{@loser.type}, the word was: #{self.player_2.word}"
+      #player_2 (picker) is winner
+      puts "Congratulations #{@player_2.type}"
+      puts "Sorry, #{@player_1.type}, the word was: #{self.player_2.word}"
     end
 
   end
@@ -40,9 +38,7 @@ class Game
   def show_status
     @board.display_board(@board)
     @image.display_hangman_image(@image)
-    puts ""
-    puts ""
-    puts ""
+    puts "\n\n\n"
   end
 
   def ask_to_play_again
@@ -55,12 +51,48 @@ class Game
     end
   end
 
+  def update_game
+    # byebug
+    if @board.valid_guess?(@player_1.guess_letter, @board)
+      # byebug
+      if @word_array.include?(@player_1.guess_letter)
+        @board.update_letters(@board, @word_array, @player_1.guess_letter)
+      else
+        @board.incorrect_letters << @player_1.guess_letter
+        @image.update_hangman_image
+      end
+    else
+      # byebug
+      # @player_1.guess(@board, @word_array, @image)
+      turn
+    end
+
+  end
+
+  # def update_game
+  #   if @word_array.include?(@player_1.guess_letter)
+  #     @board.update_letters(@board, @word_array, @player_1.guess_letter)
+  #   else
+  #     @board.incorrect_letters << @player_1.guess_letter
+  #     @image.update_hangman_image
+  #   end
+  # end
+
+  def turn
+    self.player_1.guess(@board, @word_array, @image)
+    update_game
+    show_status
+  end
+
   def play
     self.player_2.pick_word(@board)
     @word_array = self.player_2.word_array
     until over?
-      self.player_1.guess(@board, @word_array, @image)
-      show_status
+      # self.player_1.guess(@board, @word_array, @image)
+      # update_game
+      # byebug
+      # show_status
+      turn
     end
     end_message
     ask_to_play_again

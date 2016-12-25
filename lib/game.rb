@@ -51,36 +51,26 @@ class Game
     end
   end
 
-  def update_game
-    # byebug
+  def check_validity
     if @board.valid_guess?(@player_1.guess_letter, @board)
-      # byebug
-      if @word_array.include?(@player_1.guess_letter)
-        @board.update_letters(@board, @word_array, @player_1.guess_letter)
-      else
-        @board.incorrect_letters << @player_1.guess_letter
-        @image.update_hangman_image
-      end
+      update_game
     else
-      # byebug
-      # @player_1.guess(@board, @word_array, @image)
       turn
     end
-
   end
 
-  # def update_game
-  #   if @word_array.include?(@player_1.guess_letter)
-  #     @board.update_letters(@board, @word_array, @player_1.guess_letter)
-  #   else
-  #     @board.incorrect_letters << @player_1.guess_letter
-  #     @image.update_hangman_image
-  #   end
-  # end
+  def update_game
+    if @word_array.include?(@player_1.guess_letter)
+      @board.update_letters(@board, @word_array, @player_1.guess_letter)
+    else
+      @board.incorrect_letters << @player_1.guess_letter
+      @image.update_hangman_image
+    end
+  end
 
   def turn
     self.player_1.guess(@board, @word_array, @image)
-    update_game
+    check_validity
     show_status
   end
 
@@ -88,10 +78,6 @@ class Game
     self.player_2.pick_word(@board)
     @word_array = self.player_2.word_array
     until over?
-      # self.player_1.guess(@board, @word_array, @image)
-      # update_game
-      # byebug
-      # show_status
       turn
     end
     end_message

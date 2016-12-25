@@ -17,10 +17,16 @@ require 'random-word'
 
     def pick_word(board)
       @word = [RandomWord.adjs.next, RandomWord.nouns.next].sample
-            #shouldn't have _ in there!
-      puts "Okay Player 2, a computer, picked a word with #{@word.length} letters."
-      @word_array = @word.split("")
-      board.letters = board.letters*@word.length
-      #option for easy, hard, or medium word?
+      if is_valid?
+        puts "Player 2 picked a #{@word.length} letter word."
+        @word_array = @word.split("")
+        board.letters = board.letters*@word.length
+      else
+        pick_word(board)
+      end
+    end
+
+    def is_valid?
+      !@word.include?("_")
     end
 end

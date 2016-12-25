@@ -3,14 +3,11 @@ require 'highline/import'
 class Game
   attr_accessor :player_1, :player_2, :board, :image, :word, :guess, :word_array, :indices
 
-  def initialize(player_1 = Players::Human.new("guesser"), player_2 = Players::Human.new("picker"), board = Board.new, image = Image.new)
+  def initialize(player_1 = Players::Human.new("guesser"), player_2 = Computer_Player.new("picker"), board = Board.new, image = Image.new)
     @player_1 = player_1
     @player_2 = player_2
     @board = board
     @image = image
-  end
-
-  def valid_guess
   end
 
   def won?
@@ -33,6 +30,7 @@ class Game
   end
 
   def lost?
+    # byebug
     @image.hangman_image == hanged_men.last
   end
 

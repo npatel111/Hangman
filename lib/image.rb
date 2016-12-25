@@ -1,5 +1,5 @@
 class Image
-  attr_accessor :hangman_image
+  attr_accessor :hangman_image, :num
 
   def initialize
     @hangman_image =
@@ -18,9 +18,12 @@ class Image
   end
 
   def update_hangman_image
+    # took out - 1
     #find whatever index the image is, then hangman _image equals the next image
+    # byebug
     @num = (0..hanged_men.length - 1).find_index {|i| self.hangman_image == hanged_men[i]}
     self.hangman_image = hanged_men[@num + 1]
+
   end
 end
 

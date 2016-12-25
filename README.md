@@ -18,16 +18,12 @@
  - Until player guesses word or has the whole body, keep doing this
   -When they have won/lost, ask if they want to play again
 
-## Things to do once MVP is done
-- Generate random word from API? - DONE with gem
-- Pick word method for computer - DONE
-- When someone types word, should be stars - DONE
-- Have messages be better so user always knows what's going on - POSSIBLE DONE? WHO KNOWS
-- Do they want to play again? - DONE
-- Only do move if it's a valid guess - DONE
-- Use composition instead of Inheritance!
-- AI for computer guesses? Any strategy for hangman?
+## Possible things to do in the future:
+- tests?
 - Refactor  
+
+- AI for computer guesses? Any strategy for hangman?
 - Add hint option
 - Option to start with all vowels put in?
+- For one player, omeone can choose to guess or pick?
 - Give easy/medium/hards from computer

@@ -30,15 +30,12 @@ class Game
   end
 
   def lost?
-    # byebug
     @image.hangman_image == hanged_men.last
   end
 
   def over?
     won? || lost?
   end
-
-
 
   def show_status
     @board.display_board(@board)
@@ -60,7 +57,6 @@ class Game
 
   def play
     self.player_2.pick_word(@board)
-    # self.player_1.word_array = self.player_2.word_array #atrocious code. Must fix later!
     @word_array = self.player_2.word_array
     until over?
       self.player_1.guess(@board, @word_array, @image)

@@ -1,7 +1,5 @@
-# require_relative '../player.rb'
 require 'random-word'
 
-# module Players
   class Computer_Player
     attr_accessor :board, :word, :word_array
     attr_reader :type
@@ -21,7 +19,6 @@ require 'random-word'
       elsif guess.to_i.to_s == guess
         puts "Invalid because you put a num"
       else
-      #   # byebug
         return true
       end
     end
@@ -50,4 +47,3 @@ require 'random-word'
       board.letters = board.letters*@word.length
     end
 end
-#pick word will also have to be randomly generated, seperate for humans and computers

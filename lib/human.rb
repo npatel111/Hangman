@@ -1,5 +1,4 @@
-# require_relative '../player.rb'
-# module Players
+
   class Human_Player
     attr_accessor :board, :word, :word_array, :guess
 
@@ -10,29 +9,10 @@
       @word_array = []
     end
 
-    # def guess(board, array, image)
-    #   puts "Player 1, please guess a letter"
-    #   @guess_letter = gets.chomp
-    #   until valid_guess?(@guess_letter, board)
-    #     # byebug
-    #     puts "Invalid. Guess again"
-    #     # @guess_letter = gets.chomp
-    #     guess(board, array, image)
-    #   end
-    #
-    #   if array.include?(@guess_letter)
-    #     board.update_letters(board, array, @guess_letter)
-    #   else
-    #     board.incorrect_letters << @guess_letter
-    #     image.update_hangman_image
-    #   end
-    # end
-
     def guess(board, array, image)
       puts "Player 1, please guess a letter"
       @guess_letter = gets.chomp
       if valid_guess?(@guess_letter, board)
-        # byebug
         if array.include?(@guess_letter)
           board.update_letters(board, array, @guess_letter)
         else
@@ -41,22 +21,9 @@
         end
       else
         puts "Invalid. Guess again"
-        # @guess_letter = gets.chomp
         guess(board, array, image)
       end
     end
-
-    # def valid_guess?(guess, board)
-    #   if
-    #   !board.incorrect_letters.include?(guess) &&
-    #   !board.letters.include?(guess) &&
-    #   guess.length == 1
-    #   # guess.to_i.to_s != guess)
-    #     return true
-    #     # byebug
-    #   end
-    #   # byebug
-    # end
 
     def valid_guess?(guess, board)
       if board.incorrect_letters.include?(guess)
@@ -68,7 +35,6 @@
       elsif guess.to_i.to_s == guess
         puts "Invalid because you put a num"
       else
-      #   # byebug
         return true
       end
     end
@@ -78,6 +44,4 @@
       @word_array = @word.split("")
       board.letters = board.letters*@word.length
     end
-
 end
-# end

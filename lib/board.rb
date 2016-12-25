@@ -10,8 +10,6 @@ class Board
   def update_letters(board, array, guess)
     @indices = (0..array.size - 1).select {|index| array[index] == guess}
     @indices.each {|index| board.letters[index] = guess}
-    # puts "Your board: #{board.letters}"
-    # puts "Incorrect letters: #{board.incorrect_letters}"
   end
 
   def display_board(board)

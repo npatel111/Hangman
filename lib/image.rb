@@ -2,14 +2,8 @@ class Image
   attr_accessor :hangman_image, :num
 
   def initialize
-    @hangman_image =
-     ["       __________",
-      "       |        |",
-      "       |         ",
-      "       |         ",
-      "       |         ",
-      "       |         ",
-      " ______|_______  "]
+    @hangman_image = hanged_men.first
+    # byebug
   end
 
   def display_hangman_image(image)
@@ -18,17 +12,11 @@ class Image
   end
 
   def update_hangman_image
-    # took out - 1
-    #find whatever index the image is, then hangman _image equals the next image
-    # byebug
     @num = (0..hanged_men.length - 1).find_index {|i| self.hangman_image == hanged_men[i]}
     self.hangman_image = hanged_men[@num + 1]
-
   end
-end
 
-
-def hanged_men
+  def hanged_men
   [
     ["       __________",
      "       |        |",
@@ -86,5 +74,5 @@ def hanged_men
      "       |",
      " ______|_______"]
    ]
-
+  end
 end

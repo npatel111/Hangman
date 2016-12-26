@@ -24,11 +24,10 @@ class Game
       puts "Congratulations #{@player_2.type}"
       puts "Sorry, #{@player_1.type}, the word was: #{self.player_2.word}"
     end
-
   end
 
   def lost?
-    @image.hangman_image == hanged_men.last
+    @image.hangman_image == @image.hanged_men.last
   end
 
   def over?
@@ -39,6 +38,8 @@ class Game
     @board.display_board(@board)
     @image.display_hangman_image(@image)
     puts "\n\n\n"
+    #byebug
+    #bug where sometimes this shows twice?
   end
 
   def ask_to_play_again
@@ -54,12 +55,16 @@ class Game
   def check_validity
     if @board.valid_guess?(@player_1.guess_letter, @board)
       update_game
+      show_status
+      # byebug
     else
       turn
+      # byebug
     end
   end
 
   def update_game
+    # byebug
     if @word_array.include?(@player_1.guess_letter)
       @board.update_letters(@board, @word_array, @player_1.guess_letter)
     else
@@ -71,7 +76,8 @@ class Game
   def turn
     self.player_1.guess(@board, @word_array, @image)
     check_validity
-    show_status
+    # byebug - however many valid turns you have had before, you have that many extra statuses?
+    # show_status
   end
 
   def play
@@ -84,3 +90,5 @@ class Game
     ask_to_play_again
   end
 end
+
+#Check for repeating bug! status!

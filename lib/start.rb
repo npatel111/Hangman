@@ -6,10 +6,10 @@ def start
     puts "Okay, computers face off!"
     @game = Game.new(@player_1 = Computer_Player.new("guesser"), @player_2 = Computer_Player.new("picker"))
   elsif @game_type == 1
-    puts "All right, you be player 1. You'll play against a computer."
+    puts "You'll be the guesser, playing against a computer."
     @game = Game.new(@player_1 = Human_Player.new("guesser"), @player_2 = Computer_Player.new("picker"))
   else
-    puts "Okay, whoever typed the input is player 1, you'll go first."
+    puts "Whoever typed the input is the guesser (Player 1), the other person is Player 2."
     @game = Game.new(@player_1 = Human_Player.new("guesser"), @player_2 = Human_Player.new("picker"))
   end
   @game.play

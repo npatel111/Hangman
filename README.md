@@ -1,14 +1,10 @@
 # CLI Hangman
 
-## Objectives
-
-1. Build a CLI
-2. Create a domain model with multiple relating and collaborating objects.
+## Objective: Build a CLI game of hangman!
 
 ## Requirements
   - 0, 1 or 2 player Hangman.
   - Command Line Interface
-  - Computer AI?
 
 ## Tentative Plan
  - Begin with asking someone if they want to play with 0, 1, or 2 players
@@ -20,10 +16,10 @@
 
 ## Possible things to do in the future:
 - tests?
-- Refactor  
+- Refactor some more so there are less if/else statements
 
 - AI for computer guesses? Any strategy for hangman?
 - Add hint option
 - Option to start with all vowels put in?
-- For one player, omeone can choose to guess or pick?
+- For one player, someone can choose to guess or pick?
 - Give easy/medium/hards from computer

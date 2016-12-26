@@ -38,8 +38,6 @@ class Game
     @board.display_board(@board)
     @image.display_hangman_image(@image)
     puts "\n\n\n"
-    #byebug
-    #bug where sometimes this shows twice?
   end
 
   def ask_to_play_again
@@ -56,10 +54,8 @@ class Game
     if @board.valid_guess?(@player_1.guess_letter, @board)
       update_game
       show_status
-      # byebug
     else
       turn
-      # byebug
     end
   end
 
@@ -76,8 +72,6 @@ class Game
   def turn
     self.player_1.guess(@board, @word_array, @image)
     check_validity
-    # byebug - however many valid turns you have had before, you have that many extra statuses?
-    # show_status
   end
 
   def play
@@ -90,5 +84,3 @@ class Game
     ask_to_play_again
   end
 end
-
-#Check for repeating bug! status!

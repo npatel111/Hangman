@@ -53,6 +53,7 @@ class Game
   def check_validity
     if @board.valid_guess?(@player_1.guess_letter, @board)
       update_game
+#       perhaps make this a render message, and then the show status is in a different file - like the view.
       show_status
     else
       turn
@@ -61,6 +62,7 @@ class Game
 
   def update_game
     # byebug
+#     could be more readable here - like if guess.correct?, etc.
     if @word_array.include?(@player_1.guess_letter)
       @board.update_letters(@board, @word_array, @player_1.guess_letter)
     else
@@ -70,6 +72,8 @@ class Game
   end
 
   def turn
+#     perhaps make this a guess object guess = Guess.new()
+#     then you can do guess.valid
     self.player_1.guess(@board, @word_array, @image)
     check_validity
   end

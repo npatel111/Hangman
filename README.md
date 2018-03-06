@@ -1,10 +1,6 @@
 # CLI Hangman
 
-## Objective: Build a CLI game of hangman!
-
-## Requirements
-  - 0, 1 or 2 player Hangman.
-  - Command Line Interface
+Welcome to Hangman! To start, just clone this in github. Once you're in the Hangman file, type ruby bin/hangman into the console and follow the commands! Good luck!
 
 ## Tentative Plan
  - Begin with asking someone if they want to play with 0, 1, or 2 players
